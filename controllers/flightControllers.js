@@ -158,8 +158,9 @@ const deleteFlight = (req, res) => {
         const flightIdx = flights.findIndex((flight) => { 
             return flight.id === id
         })
-
-        flights.splice(flightIdx, flightIdx)
+        
+        // removing the flight from the fligths array
+        flights.splice(flightIdx, 1)
 
         // write the new info to the file
         writeFileSync(fileDir, JSON.stringify(flights))
